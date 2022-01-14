@@ -7,3 +7,19 @@ ion-content.background{
     --color:white;
     text-align: center;
 }
+
+ion-col img{
+    height: 200px;
+    width: auto;
+}
+
+ion-item{
+    --background: black;
+    color: white;
+    
+}
+
+ion-toggle{
+    border: 1px solid white;
+    border-radius: 40px;
+}
