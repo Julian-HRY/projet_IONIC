@@ -63,7 +63,7 @@ export class PersoPage implements OnInit {
 
     let input = document.documentElement.getElementsByTagName('input');
     let count = 0;
-    
+
 
     for (let i = 0; i < input.length; i++) {
       if(input[i].value != ''){
@@ -77,8 +77,11 @@ export class PersoPage implements OnInit {
         input[i].style.color = 'red';
       }
     }
-  
-
+    
+    if (input.length == 8) {
+      count --;
+    }
+    
     if(count == input.length-1){
       
       this.Perso.update(this.perso).subscribe(() => {
@@ -90,8 +93,29 @@ export class PersoPage implements OnInit {
   }
 
   onDelete(id: any) {
-    this.Perso.delete(id);
-    this.router.navigate(['/tab/perso'])
+
+   this.Suppr(id);
+  }
+
+  async Suppr(id){
+    const alert = await this.alertCtrl.create({
+      header: 'Etes-vous sur de vouloir modifier ?',
+      subHeader: 'Vous rendrez possible la modification',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'Cancel'
+        }, {
+          text: 'Confirmer',
+          handler: () => {
+            this.Perso.delete(id);
+            this.router.navigate(['/tab/perso'])
+
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }

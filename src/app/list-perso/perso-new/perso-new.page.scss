@@ -1,0 +1,30 @@
+ion-row {
+    text-align: center;
+    }
+
+ion-content{
+    --background: black;
+    --color:white;
+    text-align: center;
+}
+
+ion-col img{
+    height: 200px;
+    width: auto;
+}
+
+ion-item{
+    --background: black;
+    color: white;
+    
+}
+
+ion-toggle{
+    border: 1px solid white;
+    border-radius: 40px;
+}
+
+ion-footer{
+    --background: black;
+    text-align: center;
+}

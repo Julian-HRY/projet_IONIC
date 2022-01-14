@@ -30,17 +30,41 @@ export class PersoNewPage implements OnInit {
     });
     (await toast).present().then(() => {
       setTimeout(() => {
-        this.router.navigate(['/tabs/perso']);
+        this.router.navigate(['/tab/perso']);
       }, 2000);
     });
   }
 
 
   add() {
-    this.Perso.saveNewFilm(this.perso).subscribe(() => {
-      this.perso = new Perso();
-      this.presentToast();
-    })
+    let input = document.documentElement.getElementsByTagName('input');
+    let count = 0;
+    
+
+    for (let i = 0; i < input.length; i++) {
+      if(input[i].value != ''){
+        count ++;
+        input[i].placeholder = '';
+        input[i].style.color = 'white';
+      }
+      else{
+        input[i].placeholder = 'Remplir ce champ';
+        input[i].style.color = 'red';
+      }
+    }
+    console.log(input.length +' ' + count);
+
+    if (input.length == 8) {
+      count --;
+    }
+
+    if(count == input.length-1){
+      this.Perso.saveNewFilm(this.perso).subscribe(() => {
+        this.perso = new Perso();
+        this.presentToast();
+      })
+    }
+    
   }
 
 }
