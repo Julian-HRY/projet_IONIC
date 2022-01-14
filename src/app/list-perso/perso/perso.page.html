@@ -26,34 +26,36 @@
         <br>
 
         <ion-col size="6">
-          <strong>Nom</strong> 
+          <strong>Nom :</strong> 
           {{perso.name}} <br>
         </ion-col>
 
         <ion-col size="6">
-          <strong>Anime</strong> 
+          <strong>Anime :</strong> 
           {{perso.anime}} 
           
         </ion-col>
         
         <ion-col size="6">
-          <strong>Puissance</strong> 
-          {{perso.puissance}} 
+          <strong>Puissance :</strong> 
+          {{perso.puissance}}
+          <strong>/10</strong>
         </ion-col>
 
         <ion-col size="6">
-          <strong>Arme</strong> 
+          <strong>Arme :</strong> 
           {{perso.arme}} 
           
         </ion-col>
         <ion-col size="6">
-          <strong>Taille</strong> 
+          <strong>Taille :</strong> 
           {{perso.taille}}
-        
+          mètres
         </ion-col>
           <ion-col size="6">
-            <strong>Poid</strong> 
-            {{perso.Poid}}
+            <strong>Poid :</strong> 
+            {{perso.poid}}
+            kilo
         </ion-col>
         
         <ion-col>
@@ -69,35 +71,44 @@
 
 
   <div *ngIf="modif && perso">
+
     <ion-item>
-      <ion-label>Image</ion-label>
-      <ion-input type="text" [(ngModel)]="perso.pictureLink"></ion-input>
+      <ion-label>Nom : </ion-label>
+      <ion-input type="text" [(ngModel)]="perso.name" required></ion-input>
     </ion-item>
+    <br>
     <ion-item>
-      <ion-label>Titre</ion-label>
-      <ion-input type="text" [(ngModel)]="perso.name"></ion-input>
+      <ion-label>Image :</ion-label>
+      <ion-input type="text" [(ngModel)]="perso.pictureLink" required></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Pays</ion-label>
-      <ion-input type="text" [(ngModel)]="perso.anime"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-input type="text" [(ngModel)]="perso.puissance"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Réalisateur</ion-label>
-      <ion-input type="text" [(ngModel)]="perso.realiarmesator"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Producteur</ion-label>
-      <ion-input type="text" [(ngModel)]="perso.taille"></ion-input>
-    </ion-item>
+    <br>
     
     <ion-item>
-      <ion-label>Méchant ?</ion-label>
+      <ion-label>Anime : </ion-label>
+      <ion-input type="text" [(ngModel)]="perso.anime" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Puissance : </ion-label>
+      <ion-input type="text" [(ngModel)]="perso.puissance"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Poid : </ion-label>
+      <ion-input type="text" [(ngModel)]="perso.poid"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Taille : </ion-label>
+      <ion-input type="text" [(ngModel)]="perso.taille"></ion-input>
+    </ion-item>
+    <br>
+    
+    <ion-item>
+      <ion-label>Méchant  ?</ion-label>
       <ion-toggle [(ngModel)]="perso.bad"></ion-toggle>
     </ion-item>
+    <br>
     
     <p class="text-center">
       <ion-button (click)="onModif()">Modifier</ion-button>

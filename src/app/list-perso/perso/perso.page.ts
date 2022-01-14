@@ -60,10 +60,33 @@ export class PersoPage implements OnInit {
   }
 
   onModif() {
-    this.Perso.update(this.perso).subscribe(() => {
-      this.presentToast();
-      this.modif = false;
-    });
+
+    let input = document.documentElement.getElementsByTagName('input');
+    let count = 0;
+    
+
+    for (let i = 0; i < input.length; i++) {
+      if(input[i].value != ''){
+        count ++;
+        input[i].placeholder = '';
+        input[i].style.color = 'white';
+      }
+      else{
+        
+        input[i].placeholder = 'Remplir ce champ';
+        input[i].style.color = 'red';
+      }
+    }
+  
+
+    if(count == input.length-1){
+      
+      this.Perso.update(this.perso).subscribe(() => {
+        this.presentToast();
+        this.modif = false;
+      });
+    }
+    
   }
 
   onDelete(id: any) {
