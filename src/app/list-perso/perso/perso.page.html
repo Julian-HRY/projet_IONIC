@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab/perso"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="perso">{{perso.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  
+  <ion-button (click)="setModif()">Rendre Modifiable</ion-button>
+  <div *ngIf="!modif">
+    <ion-grid *ngIf="perso">
+      <ion-row>
+        <ion-col>
+          
+        </ion-col>
+        
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <img style="margin: auto 0;" [src]="perso.pictureLink">
+        </ion-col>
+        <br>
+        <br>
+
+        <ion-col size="6">
+          <strong>Nom</strong> 
+          {{perso.name}} <br>
+        </ion-col>
+
+        <ion-col size="6">
+          <strong>Anime</strong> 
+          {{perso.anime}} 
+          
+        </ion-col>
+        
+        <ion-col size="6">
+          <strong>Puissance</strong> 
+          {{perso.puissance}} 
+        </ion-col>
+
+        <ion-col size="6">
+          <strong>Arme</strong> 
+          {{perso.arme}} 
+          
+        </ion-col>
+        <ion-col size="6">
+          <strong>Taille</strong> 
+          {{perso.taille}}
+        
+        </ion-col>
+          <ion-col size="6">
+            <strong>Poid</strong> 
+            {{perso.Poid}}
+        </ion-col>
+        
+        <ion-col>
+          <strong>Méchant : </strong>
+          <ion-icon *ngIf="perso.bad" name="checkmark"></ion-icon>
+          <ion-icon *ngIf="!perso.bad" name="close-circle"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  
+
+
+  <div *ngIf="modif && perso">
+    <ion-item>
+      <ion-label>Image</ion-label>
+      <ion-input type="text" [(ngModel)]="perso.pictureLink"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Titre</ion-label>
+      <ion-input type="text" [(ngModel)]="perso.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Pays</ion-label>
+      <ion-input type="text" [(ngModel)]="perso.anime"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-input type="text" [(ngModel)]="perso.puissance"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Réalisateur</ion-label>
+      <ion-input type="text" [(ngModel)]="perso.realiarmesator"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Producteur</ion-label>
+      <ion-input type="text" [(ngModel)]="perso.taille"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Méchant ?</ion-label>
+      <ion-toggle [(ngModel)]="perso.bad"></ion-toggle>
+    </ion-item>
+    
+    <p class="text-center">
+      <ion-button (click)="onModif()">Modifier</ion-button>
+    </p>
+  </div>
+</ion-content>
+
+
+<ion-footer style="background-color: black;text-align: center; ">
+  <ion-col>
+    <ion-button (click)="onDelete(perso.id)">
+      <ion-icon name="trash"></ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-footer>

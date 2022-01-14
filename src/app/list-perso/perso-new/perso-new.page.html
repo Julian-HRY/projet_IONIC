@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab/perso"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nouveau Personnage </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Image</ion-label>
+    <ion-input type="text" [(ngModel)]="perso.pictureLink"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="perso.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Anime</ion-label>
+    <ion-input type="text" [(ngModel)]="perso.anime"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Puissance (sur 10)</ion-label>
+    <ion-input type="text" [(ngModel)]="perso.puissance"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Moyen de combat</ion-label>
+    <ion-input type="text" [(ngModel)]="perso.arme"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>taille</ion-label>
+    <ion-input type="text" [(ngModel)]="perso.taille"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Poid</ion-label>
+    <ion-input type="text" [(ngModel)]="perso.Poid"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Fait partie des méchants?</ion-label>
+    <ion-toggle [(ngModel)]="perso.bad"></ion-toggle>
+  </ion-item>
+  
+  <p class="text-center">
+    <ion-button (click)="add()">Envoyer</ion-button>
+  </p>
+</ion-content>

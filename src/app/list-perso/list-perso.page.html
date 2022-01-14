@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des Personnages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let Perso of Persos">
+        <ion-card [routerLink]="['/tab/perso', Perso.id]">
+          <img [src]="Perso.pictureLink" [alt]="Perso.title">
+          <p>{{Perso.name}}</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer style="background-color: black; text-align: center;">
+  <ion-button item-end routerLink="/tab/perso/new"><ion-icon  name="add-circle-outline"></ion-icon></ion-button>
+</ion-footer>
