@@ -17,7 +17,6 @@ export class ListPersoPage implements OnInit {
   ngOnInit():void {
     this.Perso.getAllPerso().subscribe((data: any) =>{
       this.Persos = data;
-      console.log(this.Persos);
     })
   }
 

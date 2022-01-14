@@ -37,12 +37,12 @@ export class PersoNewPage implements OnInit {
 
 
   add() {
-    let input = document.documentElement.getElementsByTagName('input');
+    let input = document.getElementsByTagName('input');
     let count = 0;
     
 
     for (let i = 0; i < input.length; i++) {
-      if(input[i].value != ''){
+      if(input[i].value != '' && input[i].value != 'on'){
         count ++;
         input[i].placeholder = '';
         input[i].style.color = 'white';
@@ -52,9 +52,10 @@ export class PersoNewPage implements OnInit {
         input[i].style.color = 'red';
       }
     }
-    console.log(input.length +' ' + count);
 
-    if (input.length == 8) {
+    console.log(count + ' ' + input.length)
+
+    if (count == 8) {
       count --;
     }
 

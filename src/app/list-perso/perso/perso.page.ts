@@ -61,13 +61,14 @@ export class PersoPage implements OnInit {
 
   onModif() {
 
-    let input = document.documentElement.getElementsByTagName('input');
+    let input = document.getElementsByTagName('input');
     let count = 0;
 
 
     for (let i = 0; i < input.length; i++) {
-      if(input[i].value != ''){
+      if(input[i].value != '' && input[i].value != 'on'){
         count ++;
+        console.log(input[i].type)
         input[i].placeholder = '';
         input[i].style.color = 'white';
       }
@@ -77,11 +78,15 @@ export class PersoPage implements OnInit {
         input[i].style.color = 'red';
       }
     }
+
+    console.log(count + ' ' + input.length)
     
-    if (input.length == 8) {
+    if (count == 8) {
       count --;
     }
-    
+
+    console.log(count + ' ' + input.length)
+
     if(count == input.length-1){
       
       this.Perso.update(this.perso).subscribe(() => {
